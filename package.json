@@ -37,13 +37,7 @@
   },
   "testling": {
     "files": [
-      "../configuration.js",
-      "../expect.js",
-      "../should.js",
-      "../assert.js",
-      "../plugins.js",
-      "../utilities.js",
-      "../globalShould.js"
+      "test/*.js"
     ],
     "scripts": [
       "chai.js"
