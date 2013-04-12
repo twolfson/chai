@@ -42,7 +42,7 @@
     "scripts": [
       "chai.js"
     ],
-    "harness": "mocha",
+    "harness": "mocha-tdd",
     "browsers": [
       "ie/6..latest",
       "chrome/20..latest",
