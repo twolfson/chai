@@ -267,15 +267,22 @@
      *
      * @api private
      */
+    // Object.defineProperty(Assertion.prototype, '_obj',
+    //   { get: function () {
+    //       return flag(this, 'object');
+    //     }
+    //   , set: function (val) {
+    //       flag(this, 'object', val);
+    //     }
+    // });
 
-    Object.defineProperty(Assertion.prototype, '_obj',
-      { get: function () {
-          return flag(this, 'object');
-        }
-      , set: function (val) {
-          flag(this, 'object', val);
-        }
-    });
+    Assertion.prototype._obj = function (val) {
+      if (val !== undefined) {
+        flag(this, 'object', val);
+      } else {
+        return flag(this, 'object');
+      }
+    };
 
   }); // module: chai/assertion.js
 
@@ -658,7 +665,7 @@
             , 'expected #{this} to equal #{exp}'
             , 'expected #{this} to not equal #{exp}'
             , val
-            , this._obj
+            , this._obj()
             , true
           );
         }
@@ -690,7 +697,7 @@
           , 'expected #{this} to deeply equal #{exp}'
           , 'expected #{this} to not deeply equal #{exp}'
           , obj
-          , this._obj
+          , this._obj()
           , true
         );
       }
@@ -1551,7 +1558,8 @@
      * Inherit from Error
      */
 
-    AssertionError.prototype = Object.create(Error.prototype);
+    // AssertionError.prototype = Object.create(Error.prototype);
+    AssertionError.prototype = new Error();
     AssertionError.prototype.name = 'AssertionError';
     AssertionError.prototype.constructor = AssertionError;
 
@@ -3018,7 +3026,7 @@
 
     module.exports = function (obj, args) {
       var actual = args[4];
-      return 'undefined' !== typeof actual ? actual : obj._obj;
+      return 'undefined' !== typeof actual ? actual : obj._obj();
     };
 
   }); // module: chai/utils/getActual.js
