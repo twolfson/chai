@@ -3047,7 +3047,7 @@
 
     module.exports = function (obj, args) {
       var actual = args[4];
-      return 'undefined' !== typeof actual ? actual : obj._obj();
+      return 'undefined' !== typeof actual ? actual : (obj._obj ? obj._obj() : undefined);
     };
 
   }); // module: chai/utils/getActual.js
