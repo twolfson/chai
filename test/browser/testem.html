@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Load in mocha and testem -->
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="/testem.js"></script>
+
+    <!-- Configure mocha -->
+    <script>mocha.setup('tdd')</script>
+
+    <!-- Load in our library -->
+    <script src="../../chai.js"></script>
+
+    <!-- Add a custom assertion -->
+    <script src="bootstrap.js"></script>
+
+    <!-- Add our tests -->
+    <script src="../configuration.js"></script>
+    <script src="../expect.js"></script>
+    <script src="../should.js"></script>
+    <script src="../assert.js"></script>
+    <script src="../plugins.js"></script>
+    <script src="../utilities.js"></script>
+    <script src="../globalShould.js"></script>
+
+    <!-- Run the tests -->
+    <script>
+      onload = function() {
+        if (window.mochaPhantomJS) {
+          mochaPhantomJS.run();
+        } else {
+          mocha.run();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>

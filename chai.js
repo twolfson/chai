@@ -113,33 +113,33 @@
       return this;
     };
 
-    /*!
-     * Core Assertions
-     */
+    // /*!
+    //  * Core Assertions
+    //  */
 
-    var core = require('./chai/core/assertions');
-    exports.use(core);
+    // var core = require('./chai/core/assertions');
+    // exports.use(core);
 
-    /*!
-     * Expect interface
-     */
+    // /*!
+    //  * Expect interface
+    //  */
 
-    var expect = require('./chai/interface/expect');
-    exports.use(expect);
+    // var expect = require('./chai/interface/expect');
+    // exports.use(expect);
 
-    /*!
-     * Should interface
-     */
+    // !
+    //  * Should interface
 
-    var should = require('./chai/interface/should');
-    exports.use(should);
 
-    /*!
-     * Assert interface
-     */
+    // var should = require('./chai/interface/should');
+    // exports.use(should);
 
-    var assert = require('./chai/interface/assert');
-    exports.use(assert);
+    // /*!
+    //  * Assert interface
+    //  */
+
+    // var assert = require('./chai/interface/assert');
+    // exports.use(assert);
 
   }); // module: chai.js
 
