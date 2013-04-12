@@ -225,23 +225,27 @@ suite('utilities', function () {
           // Define '__x' on that object
           // this._obj.__x = 'X!'
 
-          // If this._obj is not yet defined, move it to an object
+          // If there is a retrieval function, get _obj
           var _objFn = this._obj,
               _obj;
           if (_objFn) {
             _obj = this._obj();
           }
 
+          // If _obj did not exist, fall it back to an object
           if (!_obj) {
             _obj = {};
           }
 
+          // If there was no getter method, create one
           if (!_objFn) {
             this._obj = function () { return _obj; }
           } else {
+          // Otherwise, set up _obj
             this._obj(_obj);
           }
 
+          // Save the property to our object
           _obj.__x = 'X!'
         }
       );
