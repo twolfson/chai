@@ -216,11 +216,33 @@ suite('utilities', function () {
     chai.use(function (_chai, _) {
       _chai.Assertion.addChainableMethod('x',
         function () {
-          new chai.Assertion(this._obj).to.be.equal('x');
+          new chai.Assertion(this._obj()).to.be.equal('x');
         }
       , function () {
-          this._obj = this._obj || {};
-          this._obj.__x = 'X!'
+          // If this._obj is not yet defined, move it to an object
+          // this._obj = this._obj || {};
+
+          // Define '__x' on that object
+          // this._obj.__x = 'X!'
+
+          // If this._obj is not yet defined, move it to an object
+          var _objFn = this._obj,
+              _obj;
+          if (_objFn) {
+            _obj = this._obj();
+          }
+
+          if (!_obj) {
+            _obj = {};
+          }
+
+          if (!_objFn) {
+            this._obj = function () { return _obj; }
+          } else {
+            this._obj(_obj);
+          }
+
+          _obj.__x = 'X!'
         }
       );
 
