@@ -36,9 +36,10 @@
     , "connect": "2.7.x"
   },
   "testling": {
-    "files": "test/*.js",
+    "files": [],
     "scripts": [
-      "chai.js"
+      "chai.js",
+      "test/*.js"
     ],
     "harness": "mocha-tdd",
     "browsers": [
