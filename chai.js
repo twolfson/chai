@@ -105,7 +105,21 @@
      */
 
     exports.use = function (fn) {
-      if (!~used.indexOf(fn)) {
+      // if (!~used.indexOf(fn)) {
+      //   fn(this, util);
+      //   used.push(fn);
+      // }
+      var i = 0,
+          len = used.length,
+          wasNotFound = true;
+      for (; i < len; i++) {
+        if (used[i] === fn) {
+          wasNotFound = false;
+          break;
+        }
+      }
+
+      if (wasNotFound) {
         fn(this, util);
         used.push(fn);
       }
