@@ -80,19 +80,19 @@
      * Primary `Assertion` prototype
      */
 
-    exports.Assertion = require('./chai/assertion');
+    // exports.Assertion = require('./chai/assertion');
 
     /*!
      * Assertion Error
      */
 
-    exports.AssertionError = require('./chai/error');
+    // exports.AssertionError = require('./chai/error');
 
     /*!
      * Utils for plugins (not exported)
      */
 
-    var util = require('./chai/utils');
+    // var util = require('./chai/utils');
 
     /**
      * # .use(function)
@@ -104,42 +104,42 @@
      * @api public
      */
 
-    exports.use = function (fn) {
-      if (!~used.indexOf(fn)) {
-        fn(this, util);
-        used.push(fn);
-      }
+    // exports.use = function (fn) {
+    //   if (!~used.indexOf(fn)) {
+    //     fn(this, util);
+    //     used.push(fn);
+    //   }
 
-      return this;
-    };
+    //   return this;
+    // };
 
     /*!
      * Core Assertions
      */
 
-    var core = require('./chai/core/assertions');
-    exports.use(core);
+    // var core = require('./chai/core/assertions');
+    // exports.use(core);
 
     /*!
      * Expect interface
      */
 
-    var expect = require('./chai/interface/expect');
-    exports.use(expect);
+    // var expect = require('./chai/interface/expect');
+    // exports.use(expect);
 
     /*!
      * Should interface
      */
 
-    var should = require('./chai/interface/should');
-    exports.use(should);
+    // var should = require('./chai/interface/should');
+    // exports.use(should);
 
     /*!
      * Assert interface
      */
 
-    var assert = require('./chai/interface/assert');
-    exports.use(assert);
+    // var assert = require('./chai/interface/assert');
+    // exports.use(assert);
 
   }); // module: chai.js
 
