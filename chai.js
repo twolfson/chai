@@ -338,14 +338,17 @@
        * @api public
        */
 
-      [ 'to', 'be', 'been'
-      , 'is', 'and', 'have'
-      , 'with', 'that', 'at'
-      , 'of' ].forEach(function (chain) {
-        Assertion.addProperty(chain, function () {
+      var chains = [ 'to', 'be', 'been'
+            , 'is', 'and', 'have'
+            , 'with', 'that', 'at'
+            , 'of' ],
+          i = 0,
+          len = chains.length;
+      for (; i < len; i++) {
+        Assertion.addProperty(chains[i], function () {
           return this;
         });
-      });
+      }
 
       /**
        * ### .not
