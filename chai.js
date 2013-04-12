@@ -1566,6 +1566,13 @@
         var stackStartFunction = options.stackStartFunction;
         Error.captureStackTrace(this, stackStartFunction);
       }
+
+      // Create an error now
+      var err = new Error(),
+          prop;
+      for (prop in err) {
+        this[prop] = err[prop];
+      }
     }
 
     /*!
@@ -1573,7 +1580,7 @@
      */
 
     // AssertionError.prototype = Object.create(Error.prototype);
-    AssertionError.prototype = new Error();
+    // Handling this at the create time
     AssertionError.prototype.name = 'AssertionError';
     AssertionError.prototype.constructor = AssertionError;
 
