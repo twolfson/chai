@@ -5,12 +5,14 @@ suite('utilities', function () {
     var foo = 'bar'
       , test = expect(foo);
 
-    expect(test).to.have.property('_obj', foo);
+    expect(test._obj).to.be.an.instanceOf(Function);
+    expect(test._obj()).to.equal(foo);
 
     var bar = 'baz';
-    test._obj = bar;
+    test._obj(bar);
 
-    expect(test).to.have.property('_obj', bar);
+    expect(test._obj).to.be.an.instanceOf(Function);
+    expect(test._obj()).to.equal(bar);
     test.equal(bar);
   });
 
